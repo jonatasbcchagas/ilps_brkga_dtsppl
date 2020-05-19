@@ -1,0 +1,48 @@
+
+Gurobi 9.0.1 (linux64) logging started Thu Apr 30 05:57:45 2020
+
+Gurobi Optimizer version 9.0.1 build v9.0.1rc0 (linux64)
+Optimize a model with 860 rows, 990 columns and 6912 nonzeros
+Model fingerprint: 0x625f8a06
+Variable types: 0 continuous, 990 integer (980 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  Objective range  [7e+00, 1e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+
+User MIP start produced solution with objective 601 (0.00s)
+Loaded user MIP start with objective 601
+
+Presolve removed 613 rows and 697 columns
+Presolve time: 0.39s
+Presolved: 247 rows, 293 columns, 2198 nonzeros
+Found heuristic solution: objective 530.0000000
+Variable types: 0 continuous, 293 integer (293 binary)
+
+Root relaxation: objective 4.717500e+02, 133 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  471.75000    0   49  530.00000  471.75000  11.0%     -    0s
+     0     0  482.00000    0   52  530.00000  482.00000  9.06%     -    0s
+     0     0  486.43750    0   75  530.00000  486.43750  8.22%     -    0s
+     0     0  492.09278    0   61  530.00000  492.09278  7.15%     -    0s
+     0     0  492.94621    0   74  530.00000  492.94621  6.99%     -    0s
+     0     0  493.38235    0   73  530.00000  493.38235  6.91%     -    0s
+     0     0  493.58629    0   75  530.00000  493.58629  6.87%     -    0s
+     0     0  493.91585    0   77  530.00000  493.91585  6.81%     -    0s
+     0     0  494.01267    0   81  530.00000  494.01267  6.79%     -    0s
+     0     0  501.34308    0   78  530.00000  501.34308  5.41%     -    0s
+     0     0 infeasible    0       530.00000  530.00000  0.00%     -    0s
+
+Explored 1 nodes (643 simplex iterations) in 0.54 seconds
+Thread count was 1 (of 40 available processors)
+
+Solution count 2: 530 601 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.300000000000e+02, best bound 5.300000000000e+02, gap 0.0000%
+
+User-callback calls 202, time in user-callback 0.00 sec

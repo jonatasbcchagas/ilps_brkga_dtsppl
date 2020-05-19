@@ -1,0 +1,15 @@
+Total cost: 467
+Distance traveled: 462
+Number of relocations: 5
+
+Loading/unloading plan timeline:
+
+               06 06                
+            01 01 01 01             
+         02 02 02 02 02 02          
+      04 04 04 04 04 04 01 01       
+   05 05 05 05 05 05 05 05 05 05    
+03 03 03 03 03 03 03 03 03 02 02 02 
+
+Pickup tour  : 00 --> 03 --> 05 --> 04 --> 02 --> 01 --> 06 --> 00
+Delivery tour: 00 --> 06 --> 04 --> 03 --> 01 --> 05 --> 02 --> 00

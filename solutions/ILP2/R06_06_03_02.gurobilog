@@ -1,0 +1,67 @@
+
+Gurobi 9.0.1 (linux64) logging started Thu Apr 30 23:39:40 2020
+
+Gurobi Optimizer version 9.0.1 build v9.0.1rc0 (linux64)
+Optimize a model with 554 rows, 416 columns and 1912 nonzeros
+Model fingerprint: 0x24237c90
+Variable types: 0 continuous, 416 integer (392 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 6e+00]
+  Objective range  [2e+00, 1e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 7e+00]
+
+User MIP start produced solution with objective 601 (0.00s)
+Loaded user MIP start with objective 601
+
+Presolve removed 172 rows and 130 columns
+Presolve time: 0.01s
+Presolved: 382 rows, 286 columns, 1416 nonzeros
+Variable types: 0 continuous, 286 integer (266 binary)
+
+Root relaxation: objective 4.586667e+02, 326 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  458.66667    0   12  601.00000  458.66667  23.7%     -    0s
+     0     0  530.00000    0   38  601.00000  530.00000  11.8%     -    0s
+     0     0  530.00000    0   39  601.00000  530.00000  11.8%     -    0s
+     0     0  530.00000    0   67  601.00000  530.00000  11.8%     -    0s
+     0     0  530.00000    0   67  601.00000  530.00000  11.8%     -    0s
+     0     0  530.00000    0   59  601.00000  530.00000  11.8%     -    0s
+     0     0  530.00000    0   59  601.00000  530.00000  11.8%     -    0s
+     0     0  530.00000    0   37  601.00000  530.00000  11.8%     -    0s
+     0     0  530.00000    0   90  601.00000  530.00000  11.8%     -    0s
+     0     0  530.00000    0   60  601.00000  530.00000  11.8%     -    0s
+     0     0  530.00000    0   60  601.00000  530.00000  11.8%     -    0s
+     0     2  530.00000    0   60  601.00000  530.00000  11.8%     -    0s
+H    8     8                     563.0000000  530.00000  5.86%  46.8    0s
+H    9     9                     561.0000000  530.00000  5.53%  46.6    0s
+H   27    23                     559.0000000  530.00000  5.19%  26.4    0s
+H   80    41                     546.0000000  530.00000  2.93%  27.5    0s
+H   81    36                     540.0000000  530.00000  1.85%  27.7    0s
+
+Cutting planes:
+  Learned: 5
+  Gomory: 2
+  Cover: 14
+  Implied bound: 46
+  MIR: 19
+  StrongCG: 1
+  GUB cover: 1
+  Inf proof: 1
+  Zero half: 3
+  Mod-K: 1
+  RLT: 4
+  Relax-and-lift: 6
+
+Explored 803 nodes (24055 simplex iterations) in 1.66 seconds
+Thread count was 1 (of 40 available processors)
+
+Solution count 6: 540 546 559 ... 601
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.400000000000e+02, best bound 5.400000000000e+02, gap 0.0000%
+
+User-callback calls 2330, time in user-callback 0.00 sec

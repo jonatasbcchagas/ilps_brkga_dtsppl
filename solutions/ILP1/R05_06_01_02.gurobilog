@@ -1,0 +1,80 @@
+
+Gurobi 9.0.1 (linux64) logging started Thu Apr 30 05:57:40 2020
+
+Gurobi Optimizer version 9.0.1 build v9.0.1rc0 (linux64)
+Optimize a model with 980 rows, 990 columns and 7152 nonzeros
+Model fingerprint: 0x1d1c38be
+Variable types: 0 continuous, 990 integer (980 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  Objective range  [2e+00, 9e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+
+User MIP start produced solution with objective 501 (0.00s)
+Loaded user MIP start with objective 501
+
+Presolve removed 442 rows and 468 columns
+Presolve time: 0.06s
+Presolved: 538 rows, 522 columns, 4086 nonzeros
+Variable types: 0 continuous, 522 integer (522 binary)
+
+Root relaxation: objective 3.931355e+02, 387 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  393.13548    0  163  501.00000  393.13548  21.5%     -    0s
+     0     0  406.58142    0  155  501.00000  406.58142  18.8%     -    0s
+     0     0  407.09850    0  151  501.00000  407.09850  18.7%     -    0s
+     0     0  407.09850    0  151  501.00000  407.09850  18.7%     -    0s
+     0     0  418.48809    0  181  501.00000  418.48809  16.5%     -    0s
+     0     0  419.27103    0  174  501.00000  419.27103  16.3%     -    0s
+     0     0  419.34760    0  179  501.00000  419.34760  16.3%     -    0s
+     0     0  429.21236    0  170  501.00000  429.21236  14.3%     -    0s
+     0     0  430.82878    0  180  501.00000  430.82878  14.0%     -    0s
+     0     0  431.38817    0  178  501.00000  431.38817  13.9%     -    0s
+     0     0  431.41408    0  187  501.00000  431.41408  13.9%     -    0s
+     0     0  431.51794    0  179  501.00000  431.51794  13.9%     -    0s
+     0     0  431.52718    0  178  501.00000  431.52718  13.9%     -    0s
+     0     0  435.61171    0  186  501.00000  435.61171  13.1%     -    0s
+     0     0  436.06866    0  185  501.00000  436.06866  13.0%     -    0s
+     0     0  436.23156    0  188  501.00000  436.23156  12.9%     -    0s
+     0     0  436.25082    0  189  501.00000  436.25082  12.9%     -    0s
+     0     0  436.50556    0  188  501.00000  436.50556  12.9%     -    0s
+     0     0  436.54992    0  189  501.00000  436.54992  12.9%     -    0s
+     0     0  436.55726    0  190  501.00000  436.55726  12.9%     -    0s
+     0     0  437.24829    0  180  501.00000  437.24829  12.7%     -    0s
+     0     0  437.36279    0  181  501.00000  437.36279  12.7%     -    0s
+     0     0  437.46675    0  179  501.00000  437.46675  12.7%     -    0s
+     0     0  437.53423    0  187  501.00000  437.53423  12.7%     -    0s
+     0     0  437.53607    0  188  501.00000  437.53607  12.7%     -    0s
+     0     0  438.46778    0  191  501.00000  438.46778  12.5%     -    0s
+     0     0  438.61690    0  192  501.00000  438.61690  12.5%     -    0s
+     0     0  438.62275    0  193  501.00000  438.62275  12.5%     -    0s
+     0     0  440.04827    0  187  501.00000  440.04827  12.2%     -    0s
+     0     0  440.10122    0  185  501.00000  440.10122  12.2%     -    0s
+     0     0  440.10148    0  187  501.00000  440.10148  12.2%     -    0s
+     0     0  440.10987    0  188  501.00000  440.10987  12.2%     -    0s
+     0     0  440.10987    0  185  501.00000  440.10987  12.2%     -    0s
+H    0     0                     494.0000000  440.29776  10.9%     -    0s
+     0     2  440.29776    0  185  494.00000  440.29776  10.9%     -    1s
+*   37    21              11     491.0000000  450.99474  8.15%  77.8    1s
+*   44    11               6     475.0000000  452.26923  4.79%  69.4    1s
+
+Cutting planes:
+  Gomory: 2
+  Clique: 1
+  MIR: 12
+  Zero half: 27
+  RLT: 49
+
+Explored 101 nodes (6589 simplex iterations) in 1.52 seconds
+Thread count was 1 (of 40 available processors)
+
+Solution count 4: 475 491 494 501 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 4.750000000000e+02, best bound 4.750000000000e+02, gap 0.0000%
+
+User-callback calls 791, time in user-callback 0.00 sec
