@@ -12,7 +12,9 @@ class ILPFormulation1 {
             GRBModel *model = NULL;
             GRBVar ****x = NULL;
             GRBVar ****y = NULL;
-            GRBVar **z = NULL;   
+            GRBVar **z = NULL;  
+            GRBVar objPart1;
+            GRBVar objPart2;
             int status;
             
             void createVariables();

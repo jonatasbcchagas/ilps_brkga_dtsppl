@@ -78,27 +78,33 @@ void ILPFormulation1::addObjectiveFunction() {
     
     // Objective function
     
-    GRBLinExpr objPart1 = 0;
-    GRBLinExpr objPart2 = 0;
+    GRBLinExpr _objPart1 = 0;
+    GRBLinExpr _objPart2 = 0;
                 
     for(int r = PICKUP; r <= DELIVERY; ++r) {
         for(int i = 0; i <= Data::getInstance().numItems; ++i) {
             for(int j = 0; j <= Data::getInstance().numItems; ++j) {
                 if(j == i) continue;
                 for(int k = 1; k <= Data::getInstance().numItems+1 ; ++k) {
-                    objPart1 += x[i][j][k][r] * (r == PICKUP ? Data::getInstance().pickupDistance[i][j] : Data::getInstance().deliveryDistance[i][j]);
+                    _objPart1 += x[i][j][k][r] * (r == PICKUP ? Data::getInstance().pickupDistance[i][j] : Data::getInstance().deliveryDistance[i][j]);
                 }
             }
         }
     }
     for(int r = PICKUP; r <= DELIVERY; ++r) {
         for(int k = 1; k <= Data::getInstance().numItems - 1; ++k) {
-            objPart2 += z[k][r];
+            _objPart2 += z[k][r];
         }
     }
     
-    GRBLinExpr obj = objPart1 + (objPart2 * Data::getInstance().costForEachRealoading);
+    GRBLinExpr obj = _objPart1 + (_objPart2 * Data::getInstance().costForEachRealoading);
     model->setObjective(obj, GRB_MINIMIZE);
+    
+    objPart1 = model->addVar(0.0, GRB_INFINITY, 0.0, GRB_INTEGER);
+    model->addConstr(objPart1 == _objPart1);
+    
+    objPart2 = model->addVar(0.0, GRB_INFINITY, 0.0, GRB_INTEGER);
+    model->addConstr(objPart2 == _objPart2);    
 }
 
 void ILPFormulation1::addConstraints() {
@@ -351,7 +357,7 @@ void ILPFormulation1::solve(const string outputSolutionFileName) {
 
     model->set(GRB_StringParam_LogFile, outputSolutionFileName + ".gurobilog");
         
-    LogCallback cb;
+    LogCallback cb(objPart1, objPart2);
     
     model->setCallback(&cb);
     
@@ -391,6 +397,8 @@ void ILPFormulation1::solve(const string outputSolutionFileName) {
     fout << endl;    
     sprintf(tmp, "%-20s %15.3lf %15d %15d %15d %15d %15.5lf %15.3lf %15d\n", outputSolutionFileName.c_str(), currentLowerBound, lowerBound, upperBound, totalDistanceTraveled, totalNumberOfRelocations, gap, time_span.count(), status == GRB_OPTIMAL ? 1 : 0);
     fout << tmp << endl;
+    
+    cb.nds.saveSet(outputSolutionFileName + ".nds");
 }
 
 int ILPFormulation1::getTotalCost() const {
@@ -410,41 +418,14 @@ int ILPFormulation1::getTotalCost() const {
 
 int ILPFormulation1::getTotalDistanceTraveled() const {
     
-    if(model->get(GRB_IntAttr_SolCount) == 0) {
-        return INF;
-    }
-    
-    int cost = 0;
-    for(int r = PICKUP; r <= DELIVERY; ++r) {
-        for(int k = 1; k <= Data::getInstance().numItems + 1; ++k) {
-            for(int i = 0; i <= Data::getInstance().numItems; ++i) {
-                for(int j = 0; j <= Data::getInstance().numItems; ++j) {
-                    if(i == j) continue;
-                    if(x[i][j][k][r].get(GRB_DoubleAttr_X) > 0.5) {
-                        cost += (r == PICKUP ? Data::getInstance().pickupDistance[i][j] : Data::getInstance().deliveryDistance[i][j]);
-                    }
-                }
-            }
-        }
-    }
-    
-    return cost;
+    if(model->get(GRB_IntAttr_SolCount) == 0) return INF;
+    return (int)(objPart1.get(GRB_DoubleAttr_X)+0.5);
 }
 
 int ILPFormulation1::getTotalNumberOfRelocations() const {
     
-    if(model->get(GRB_IntAttr_SolCount) == 0) {
-        return INF;
-    }
-      
-    int _counter = 0;
-    for(int r = PICKUP; r <= DELIVERY; ++r) {
-        for(int k = 1; k <= Data::getInstance().numItems - 1; ++k) {
-            _counter += (int)(z[k][r].get(GRB_DoubleAttr_X)+0.5);
-        }
-    } 
-    
-    return _counter;
+    if(model->get(GRB_IntAttr_SolCount) == 0) return INF;
+    return (int)(objPart2.get(GRB_DoubleAttr_X)+0.5);
 }
 
 void ILPFormulation1::saveSolution(const string outputSolutionFileName) {

@@ -13,7 +13,9 @@ class ILPFormulation2 {
             GRBVar ***chi = NULL;
             GRBVar **u = NULL;
             GRBVar ****y = NULL;
-            GRBVar **z = NULL;     
+            GRBVar **z = NULL;  
+            GRBVar objPart1;
+            GRBVar objPart2;    
             int status;
             
             void createVariables();

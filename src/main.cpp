@@ -124,6 +124,8 @@ inline void runBRKGA(const string outputSolutionFileName) {
 
     // save the best solution found
     decoder.decode(bestSolution.second, outputSolutionFileName + ".sol");
+    
+    decoder.nds.saveSet(outputSolutionFileName + ".nds");
 }
  
 inline void usage() { 

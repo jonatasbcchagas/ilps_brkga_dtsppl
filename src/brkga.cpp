@@ -199,6 +199,8 @@ double Decoder::decode(const std::vector< double >& chromosome, string solutionF
         
         fout.close();
     }
-       
+    
+    nds.add(make_pair(distance, numberOfRelocations));
+        
     return totalCost;
 }

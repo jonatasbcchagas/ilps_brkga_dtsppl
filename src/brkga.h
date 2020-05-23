@@ -9,6 +9,7 @@
 
 #include "data.h"
 #include "tsp_solver.h"
+#include "non_dominated_set.h"
 
 using namespace std;
 
@@ -980,7 +981,9 @@ public:
     
     double alpha;
     double beta;
-        
+    
+    NonDominatedSet nds;
+    
     Decoder(double _alpha=1.0, double _beta=1.0);
         
     ~Decoder();
