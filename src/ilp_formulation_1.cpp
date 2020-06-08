@@ -398,7 +398,7 @@ void ILPFormulation1::solve(const string outputSolutionFileName) {
     sprintf(tmp, "%-20s %15.3lf %15d %15d %15d %15d %15.5lf %15.3lf %15d\n", outputSolutionFileName.c_str(), currentLowerBound, lowerBound, upperBound, totalDistanceTraveled, totalNumberOfRelocations, gap, time_span.count(), status == GRB_OPTIMAL ? 1 : 0);
     fout << tmp << endl;
     
-    cb.nds.saveSet(outputSolutionFileName + ".nds");
+    // cb.nds.saveSet(outputSolutionFileName + ".nds");
 }
 
 int ILPFormulation1::getTotalCost() const {

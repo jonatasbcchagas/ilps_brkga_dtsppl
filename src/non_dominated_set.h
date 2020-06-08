@@ -63,7 +63,7 @@ class NonDominatedSet {
                 if (isAdded) allNDS.push_back(s);
             }
 
-            void saveSet(const string outputFileName) {
+            void saveSet(const string outputFileName) { 
                 
                 ofstream fout(outputFileName.c_str());
                 allNDS.sort();
